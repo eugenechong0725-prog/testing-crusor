@@ -47,4 +47,5 @@ Open http://localhost:8080
 
 ## Live site
 
-GitHub Pages: https://eugenechong0725-prog.github.io/testing-crusor/
+- GitHub Pages: https://eugenechong0725-prog.github.io/testing-crusor/
+- Vercel: import this repo at [vercel.com/new](https://vercel.com/new) → select `testing-crusor` → Deploy (no build settings needed)
