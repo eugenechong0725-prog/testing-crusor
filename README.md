@@ -4,18 +4,11 @@ A landing page for a digital agency that collects client inquiries and sends the
 
 > **Privacy:** Customers only see the thank-you message after submitting. Leads are sent privately to **eugenechong0725@gmail.com** — not shown on the website.
 
-## Email setup (required, one-time)
+## Email setup
 
-Leads are sent via [Web3Forms](https://web3forms.com) to `eugenechong0725@gmail.com`.
+Leads are sent via [FormSubmit.co](https://formsubmit.co) to `eugenechong0725@gmail.com`.
 
-**Why Web3Forms?** FormSubmit requires separate activation for each domain (GitHub Pages vs Vercel). Web3Forms works on all domains with one access key.
-
-1. Go to [web3forms.com](https://web3forms.com)
-2. Enter `eugenechong0725@gmail.com` and create a free access key
-3. Copy the access key from your email
-4. Paste it into `app.js` at `WEB3FORMS_ACCESS_KEY`
-
-After that, the form works on GitHub Pages, Vercel, and any custom domain.
+Both **GitHub Pages** and **Vercel** are activated. If you add a new custom domain later, submit once on that domain and click the activation link FormSubmit sends to your email.
 
 ## Features
 
