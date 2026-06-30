@@ -29,7 +29,7 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-content">
-          <span class="hero-badge">Trusted by 50+ businesses</span>
+          <span class="hero-badge">Built for small businesses</span>
           <h1>We build digital products that <em>grow your business</em></h1>
           <p class="hero-lead">
             From high-converting landing pages to AI chatbots and WhatsApp automation — we deliver solutions tailored to your goals and budget.
@@ -39,6 +39,9 @@
             <li>Delivered in 1–4 weeks</li>
             <li>Ongoing support available</li>
           </ul>
+          <div class="hero-actions">
+            <a href="#inquiry" class="btn btn-primary">Get Free Quote</a>
+          </div>
         </div>
         <div class="hero-visual" aria-hidden="true">
           <div class="visual-card visual-card--1">
@@ -93,6 +96,30 @@
             </div>
             <h3>WhatsApp Automation</h3>
             <p>Automated replies, booking flows, and broadcast campaigns on WhatsApp Business.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Your Business Needs This -->
+    <section class="why-section" id="why">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Your Business Needs This</h2>
+          <p>Customers search online first. Without the right digital tools, you lose enquiries to competitors who respond faster.</p>
+        </div>
+        <div class="why-grid">
+          <article class="why-card">
+            <h3>Get found online</h3>
+            <p>A professional website or landing page helps customers discover your business and trust what you offer.</p>
+          </article>
+          <article class="why-card">
+            <h3>Reply faster, 24/7</h3>
+            <p>AI chatbots and WhatsApp automation answer common questions instantly — even when you are busy or closed.</p>
+          </article>
+          <article class="why-card">
+            <h3>Turn visitors into leads</h3>
+            <p>Clear calls-to-action and enquiry forms make it easy for potential customers to reach you with one click.</p>
           </article>
         </div>
       </div>
@@ -173,42 +200,11 @@
               <span class="error-msg" id="notesError"></span>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-full">Submit Request</button>
+            <p class="form-error" id="formError" role="alert" hidden></p>
+
+            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">Submit Request</button>
           </form>
         </div>
-      </div>
-    </section>
-
-    <!-- Lead List -->
-    <section class="lead-list-section" id="leadListSection">
-      <div class="container">
-        <div class="section-header">
-          <h2>Lead List</h2>
-          <p>Submitted inquiries appear here. Data is saved locally in your browser.</p>
-        </div>
-
-        <div class="lead-empty" id="leadEmpty">
-          <p>No leads yet. Submit the form above to see them here.</p>
-        </div>
-
-        <div class="lead-table-wrapper" id="leadTableWrapper" hidden>
-          <table class="lead-table" aria-label="Submitted leads">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Service</th>
-                <th>Budget</th>
-                <th>Notes</th>
-                <th>Submitted</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody id="leadTableBody"></tbody>
-          </table>
-        </div>
-
-        <div class="lead-cards" id="leadCards"></div>
       </div>
     </section>
   </main>
