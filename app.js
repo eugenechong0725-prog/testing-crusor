@@ -1,9 +1,12 @@
 // ============================================================
-// Leads are sent directly to this email (private — customers never see them).
-// Change this if you want leads sent to a different inbox.
+// Leads are sent to this email (private — customers never see them).
+// Get your free access key at https://web3forms.com
+// Enter LEAD_EMAIL there, then paste the access key below.
+// Works on GitHub Pages, Vercel, and custom domains — no per-domain activation.
 // ============================================================
 const LEAD_EMAIL = 'eugenechong0725@gmail.com';
-const EMAIL_SUBMIT_URL = `https://formsubmit.co/ajax/${encodeURIComponent(LEAD_EMAIL)}`;
+const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY_HERE';
+const WEB3FORMS_URL = 'https://api.web3forms.com/submit';
 
 const form = document.getElementById('leadForm');
 const successMessage = document.getElementById('successMessage');
@@ -123,17 +126,25 @@ function buildLeadPayload() {
 }
 
 async function sendToEmail(payload) {
-  const response = await fetch(EMAIL_SUBMIT_URL, {
+  if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === 'YOUR_ACCESS_KEY_HERE') {
+    throw new Error('Web3Forms access key is not configured.');
+  }
+
+  const response = await fetch(WEB3FORMS_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
     body: JSON.stringify({
-      _subject: `New Lead: ${payload.name} — ProWeb Studio`,
-      _template: 'table',
-      _captcha: 'false',
-      ...payload,
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: `New Lead: ${payload.name} — ProWeb Studio`,
+      from_name: 'ProWeb Studio Website',
+      name: payload.name,
+      phone: payload.phone,
+      service: payload.service,
+      budget: payload.budget,
+      message: payload.notes,
     }),
   });
 
@@ -142,8 +153,8 @@ async function sendToEmail(payload) {
   }
 
   const result = await response.json();
-  if (result.success !== 'true' && result.success !== true) {
-    throw new Error('Email submission failed');
+  if (!result.success) {
+    throw new Error(result.message || 'Email submission failed');
   }
 }
 
@@ -151,6 +162,11 @@ async function handleSubmit(e) {
   e.preventDefault();
 
   if (!validate()) return;
+
+  if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === 'YOUR_ACCESS_KEY_HERE') {
+    showFormError('Form is not configured yet. Please add your Web3Forms access key in app.js.');
+    return;
+  }
 
   const payload = buildLeadPayload();
 
